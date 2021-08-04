@@ -5,18 +5,13 @@ import { Home } from "./Home"
 import Header from "./Header"
 import { ContratarServico } from './ContratarServico'
 
-export class AppContainer extends Component {
+export class Carrinho extends Component {
   
   
   render() {
     return (
       <div>
-        <Header />
-         <Home />
-        <p>Pronto para começar!</p>
-        <CadastroPrestador />
-        <ContratarServico />
-        {/* <DetalheServico /> */}
+        <p>Carrinho vazio</p>
       </div>
     )
   }

@@ -15,9 +15,7 @@ export class DetalheServico extends React.Component {
         return (
 
             <MainContainer>
-                <h3>Aqui vai o titulo
-                {/* {this.props...} */}
-                </h3>
+                <h3> {this.props.servico.title} </h3>
                 <p>Aqui vai o preço:
                 {/* {this.props...} */}
                 </p>
