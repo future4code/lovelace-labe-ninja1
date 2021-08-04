@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { CadastroPrestador } from './CadastroPrestador'
 import { DetalheServico } from './DetalheServico'
+import { Home } from './Home'
 
 export class AppContainer extends Component {
   
@@ -11,6 +12,7 @@ export class AppContainer extends Component {
         <p>Pronto para começar!</p>
         {/* <CadastroPrestador /> */}
         <DetalheServico />
+        <Home />
       </div>
     )
   }

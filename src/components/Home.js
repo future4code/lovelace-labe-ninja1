@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import styled from 'styled-components';
-import labeninjas2 from "./components/labeninjas2";
+import labeninjas2 from "./imagens/labeninjas2.png";
+import { CadastroPrestador } from './CadastroPrestador';
 
  const CardHome = styled.div`
 padding: 10px;
 margin: 10px;
 text-align: center;
 
+.img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
 `
 
 
@@ -19,15 +25,17 @@ export class Home extends Component {
   escolheTela = () => {
       switch(this.state.telaAtual){
         case "cadastro":
-          return <TelaCadastro irParaContratar={this.irParaContratar}/>
+          return 
+          //<TelaCadastro irParaContratar={this.irParaContratar}/>
         case "contratar":
-          return <TelaLista irParaCadastro={this.irParaCadastro}/>
+          return 
+          //<TelaLista CadastroPrestador ={this.CadastroPrestador}/>
         default:
         return <div>Erro</div>
       }
   }
 
-  irParaCadastro = () =>{
+  CadastroPrestador = () =>{
     this.setState({telaAtual: "cadastro"})
   }
 
@@ -38,13 +46,16 @@ export class Home extends Component {
 
   render() {
     return (
-    <div> 
-      <img src ={labeninjas2}/>
-      <CardHome>
+    <div> <CardHome>
+          <img src ={labeninjas2}/>    
           <h1>LabeNinjas</h1>
           <h3>O talento certo no momento certo</h3>
-          <button onClick={this.props.irParaCadastro}>Quero ser um Ninja</button>
-          <button onClick={this.props.irParaContratar}>Contratar um Ninja</button>
+          <button 
+          //onClick={this.props.CadastroPrestador}
+          >Quero ser um Ninja</button>
+          <button 
+          //onClick={this.props.irParaContratar}
+          >Contratar um Ninja</button>
       </CardHome> 
       {this.escolheTela()}
     </div> 
