@@ -15,13 +15,10 @@ text-align: center;
   margin-right: auto
 }
 `
-
-
 export class Home extends Component {
   state = {
     telaAtual : "cadastro",
   };
-
   escolheTela = () => {
       switch(this.state.telaAtual){
         case "cadastro":
@@ -38,12 +35,9 @@ export class Home extends Component {
   CadastroPrestador = () =>{
     this.setState({telaAtual: "cadastro"})
   }
-
   irParaContratar = () =>{
     this.setState({telaAtual: "contratar"})
   }
-
-
   render() {
     return (
     <div> <CardHome>
@@ -59,7 +53,24 @@ export class Home extends Component {
       </CardHome> 
       {this.escolheTela()}
     </div> 
-
     )
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

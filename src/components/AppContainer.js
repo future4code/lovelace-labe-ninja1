@@ -9,10 +9,12 @@ export class AppContainer extends Component {
   render() {
     return (
       <div>
+        <Header />
+         <Home />
         <p>Pronto para começar!</p>
-        {/* <CadastroPrestador /> */}
-        <DetalheServico />
-        <Home />
+        <CadastroPrestador />
+        <ContratarServico />
+        {/* <DetalheServico /> */}
       </div>
     )
   }
