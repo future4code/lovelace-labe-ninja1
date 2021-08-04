@@ -21,7 +21,84 @@ margin-top: 20px;
 `
 
 
+const url = "https://labeninjas.herokuapp.com/jobs"
+
+const headers = {
+    headers: {
+        Authorization: "6a92c60e-5cc8-4cdd-b60a-7e55a0798b10"
+    }
+};
+
+
 export class CadastroPrestador extends React.Component {
+
+    state = {
+        titulo: "",
+        descriçao: "",
+        preco: "",
+        metodosPagamento: [],
+        dataPrazo: ""
+
+    }
+
+    onChangeTitulo = (event) => {
+        this.setState({
+            titulo: event.target.value
+
+        })
+    }
+
+    onChangeDescricao = (event) => {
+        this.setState({
+            descricao: event.target.value
+
+        })
+    }
+
+    onChangePreco = (event) => {
+        this.setState({
+            preco: Number(event.target.value)
+
+        })
+    }
+
+    onChangePagamento = (event) => {
+        this.setState({
+            metodosPagamento: [event.target.value]
+
+        })
+    }
+
+    onChangePrazo = (event) => {
+        this.setState({
+            dataPrazo: event.target.value
+
+        })
+    }
+
+    criaServico = () => {
+        const body = {
+
+            title: this.state.titulo,
+            description: this.state.descricao,
+            price: this.state.preco,
+            paymentMethods: this.state.metodosPagamento,
+            dueDate: this.state.dataPrazo
+            }
+            
+
+        axios
+            .post(url, body, headers)
+            .then((response) => {
+                alert("Serviço cadastrado!");
+                this.setState({ titulo: "", descricao: "", preco: "", metodosPagamento: [], dataPrazo: "" });
+
+            })
+            .catch((error) => {
+                alert(error.response.data.message);
+                console.log(error.response.data.message)
+            });
+    }
 
     render() {
         return (
@@ -31,25 +108,37 @@ export class CadastroPrestador extends React.Component {
                 <Inputs>
                     <input
                         placeholder="Título do serviço"
+                        value={this.state.titulo}
+                        onChange={this.onChangeTitulo}
                     />
                     <input
                         placeholder="Descrição do serviço"
+                        value={this.state.descricao}
+                        onChange={this.onChangeDescricao}
                     />
                     <input
-                        placeholder="Preço do serviço" type="number" value=""  
+                        placeholder="Preço do serviço" type="number" value=""
+                        value={this.state.preco}
+                        onChange={this.onChangePreco}
                     />
-                    <select>
-         <option value="forma de pagamento"> Escolha sua forma de pagamento </option>
-            <option value="cartão de crédito"> Cartão de crédito </option>
-            <option value="cartão de débito"> Cartão de débito </option>
-            <option value="paypal"> PayPal </option>
-            <option value="PIX"> PIX </option>
-        </select>
-                        
-                    <input type="date" />
+                    <select
+                        value={this.state.metodosPagamento}
+                        onChange={this.onChangePagamento}>
+                        <option value="forma de pagamento"> Escolha sua forma de pagamento </option>
+                        <option value="cartão de crédito"> Cartão de crédito </option>
+                        <option value="cartão de débito"> Cartão de débito </option>
+                        <option value="paypal"> PayPal </option>
+                        <option value="PIX"> PIX </option>
+                    </select>
+
+                    <input type="date" 
+                    value={this.state.dataPrazo}
+                    onChange={this.onChangePrazo}
+                    />
+
                 </Inputs>
                 <Botao>
-                    <button>Cadastrar serviço</button>
+                    <button onClick={this.criaServico}>Cadastrar serviço</button>
                 </Botao>
 
             </MainContainer>
