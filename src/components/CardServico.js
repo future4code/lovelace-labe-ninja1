@@ -12,13 +12,22 @@ box-shadow: 7px 7px 15px 1px rgba(0,0,0,0.79);
 margin-top: 20px;
 `
 
-export class CardServico extends React.Component {
 
+export class CardServico extends React.Component {
+    state = {
+        product: {
+            id: Math.random(),
+            name: 'card 1'
+        }
+    }
+    
+            
     render() {
+        console.log(this.props)
         return (
 
             <MainContainer>
-                <h3> {this.props.servico.title} </h3>
+                {/* <h3> {this.props.servico.title} </h3> */}
                 <p>R$: 
                 {this.props.servico.price}
                 </p>
@@ -27,7 +36,7 @@ export class CardServico extends React.Component {
                 </p>
                
                 <button>Ver detalhes</button>
-                <button>Adicionar ao carrinho</button>
+                <button onClick={() => this.props.updateProducts(this.state.product)}>Adicionar ao carrinho</button>
                
             </MainContainer>
 

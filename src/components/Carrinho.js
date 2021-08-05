@@ -11,7 +11,7 @@ export class Carrinho extends Component {
   render() {
     return (
       <div>
-        <p>Carrinho vazio</p>
+        <p>ID: {this.props.product.id}</p>
       </div>
     )
   }

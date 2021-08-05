@@ -99,7 +99,7 @@ export class ContratarServico extends Component {
 
     const exibirLista = exibeListaFiltrada.map((servico) => {
       return (
-        <CardServico key={servico.id} servico={servico} />
+        <CardServico key={servico.id} servico={servico} updateProducts={this.props.updateProducts}/>
       )
     })
 
