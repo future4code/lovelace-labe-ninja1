@@ -23,8 +23,57 @@ grid-template-columns: 1fr 1fr 1fr 1fr;
 export class ContratarServico extends Component {
 
   state = {
-    servicos: []
+    servicos: [],
+    listaServicosFiltrada: [],
+    inputValorMinimo: 0,
+    inputValorMaximo: 1000,
+    inputBusca: "",
+    sort: "",
+
   }
+
+  onChangeValorMinimo = (event) => {
+    this.setState({
+      inputValorMinimo: event.target.value
+
+    })
+  }
+
+  onChangeValorMaximo = (event) => {
+    this.setState({
+      inputValorMaximo: event.target.value
+
+    })
+  }
+
+  onChangeBusca = (event) => {
+    this.setState({
+      inputBusca: event.target.value
+
+    })
+
+  }
+
+  onChangeSelect = (event) => {
+    this.setState({
+      sort: event.target.value
+      
+    })
+  }
+
+  listaFiltrada = () => {
+    return this.state.servicos
+      .filter((servico) => servico.price < this.state.inputValorMaximo)
+      .filter((servico) => servico.price > this.state.inputValorMinimo)
+      .filter((servico) => servico.title.toLowerCase().includes(this.state.inputBusca.toLowerCase()) || servico.description.toLowerCase().includes(this.state.inputBusca.toLowerCase()))
+      .sort((a,b)=>this.state.sort === "Menor Preço" ? a.price  -  b.price : b.price - a.price) 
+      .sort((a,b)=>this.state.sort === "titulo" &&
+      (a.title > b.title ? 1 : b.title > a.title ? -1 : 0)) 
+      
+    }
+    
+
+
 
   componentDidMount() {
     this.mostraServicos();
@@ -45,23 +94,20 @@ export class ContratarServico extends Component {
 
 
   render() {
+    
+    const exibeListaFiltrada = this.listaFiltrada()
 
+    const exibirLista = exibeListaFiltrada.map((servico) => {
+      return (
+        <CardServico key={servico.id} servico={servico} />
+      )
+    })
 
     const exibirServicos = this.state.servicos.map((servico) => {
       return (
         <CardServico key={servico.id} servico={servico} />
-        
       )
-
     })
-
-    // const exibirServicos = this.state.servicos.map((servico) => {
-    //   return (
-    //     <DetalheServico servico={servico} />
-    //   )
-    // })
-
-
 
     return (
       <div>
@@ -70,26 +116,34 @@ export class ContratarServico extends Component {
 
         <input
           placeholder="Valor Mínimo"
+          type="number"
+          value={this.state.inputValorMinimo}
+          onChange={this.onChangeValorMinimo}
         />
         <input
           placeholder="Valor Máximo"
+          type="number"
+          value={this.state.inputValorMaximo}
+          onChange={this.onChangeValorMaximo}
         />
         <input
           placeholder="Buscar por Serviço"
+          value={this.state.inputBusca}
+          onChange={this.onChangeBusca}
         />
 
-        <select>
+        <select onChange={this.onChangeSelect}>
           <option text="Ordenar por"> Ordenar Por: </option>
-          <option text="Título"> Título </option>
+          <option value="titulo"> Título </option>
           <option value="Menor Preço">Menor Preço </option>
           <option value="Maior Preço"> Maior preço </option>
           <option value="Prazo"> Prazo </option>
         </select>
 
         <CardsServicos>
-        {exibirServicos}
+          {exibirLista}
         </CardsServicos>
-        
+
 
       </div>
     )
