@@ -15,7 +15,7 @@ export class AppContainer extends Component {
          <Home />
         <p>Pronto para começar!</p>
         <CadastroPrestador />
-        <ContratarServico />
+        {/* <ContratarServico /> */}
         {/* <DetalheServico /> */}
       </div>
     )
