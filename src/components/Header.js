@@ -16,7 +16,7 @@ color: white;
 const EstilizaTitulo = styled.div`
 display: flex;
 margin-left: 70px;
-color: #FF8906;
+color: #E53170;
 `
 
 const Botao = styled.div`

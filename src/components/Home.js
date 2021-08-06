@@ -9,6 +9,7 @@ import {ThemeProvider } from '@material-ui/core/styles';
 padding: 10px;
 margin: 10px;
 text-align: center;
+color: #7C66C5;
 `
 
 const HomeImg = styled.img`

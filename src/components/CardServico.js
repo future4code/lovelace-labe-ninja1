@@ -61,7 +61,7 @@ class CardServico extends React.Component {
 
             <Card className={classes.root} variant="outlined" color="primary" >
 
-        <CardContent styled={cardColor}>
+        <CardContent >
                     <h3> {this.props.servico.title} </h3>
                     <p>R$: 
                     {this.props.servico.price}
@@ -72,7 +72,7 @@ class CardServico extends React.Component {
                 
                     <CardActions>
                         <Button onClick={this.setProductDetails} variant="outlined" >Ver detalhes</Button>
-                        <Button onClick={() => this.props.updateProducts(this.props.servico)}>Adicionar ao carrinho</Button>
+                        <Button onClick={() => this.props.updateProducts(this.props.servico)} variant="outlined">Adicionar ao carrinho</Button>
                     </CardActions>
             </CardContent>
 
