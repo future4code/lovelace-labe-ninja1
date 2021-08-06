@@ -21,6 +21,12 @@ width: 300px;
 // border: 2px solid black;
 gap: 15px;
 padding: 10px;
+input {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
 `
 const Botao = styled.div`
 margin-top: 20px;
