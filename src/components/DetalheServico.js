@@ -22,18 +22,15 @@ export class DetalheServico extends React.Component {
         return (
 
             <MainContainer>
-                {/* <h3> {this.props.servico.title} </h3> */}
-                <p>Aqui vai o preço:
-                {/* {this.props...} */}
+                <h3> {this.props.servico.title} </h3>
+                <p> R$:
+                {this.props.servico.price}
                 </p>
-                <p>Aqui vai o prazo:
-                {/* {this.props...} */}
+                <p>
+                {this.props.servico.description}
                 </p>
-                <p>Aqui vai a descrição:
-                {/* {this.props...} */}
-                </p>
-                <p>Aqui vai a forma de pagamento:
-                {/* {this.props...} */}
+                <p>
+                {this.props.servico.paymentMethods}
                 </p>
 
                 <button>Voltar para a lista</button>

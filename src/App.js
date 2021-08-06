@@ -5,6 +5,7 @@ import { ContratarServico } from './components/ContratarServico';
 import { CadastroPrestador } from './components/CadastroPrestador';
 import Header from './components/Header';
 import { Carrinho } from './components/Carrinho';
+import { DetalheServico } from './components/DetalheServico';
 
 
 export default class App extends React.Component {
@@ -55,9 +56,7 @@ export default class App extends React.Component {
 				return <Carrinho products={this.state.products} />;
 
 			case "detalhe":
-				return <div>
-					{this.state.selectProduct.title};
-				</div>
+				return <DetalheServico servico={this.state.selectProduct} />
 			case "lixeira":
 				return <Carrinho products={this.state.products} />;
 
