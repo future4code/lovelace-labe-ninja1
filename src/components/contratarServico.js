@@ -6,7 +6,6 @@ import { DetalheServico } from './DetalheServico';
 import CardServico from './CardServico';
 import { findByLabelText } from '@testing-library/react';
 
-import { CardServico } from './CardServico';
 import Button from '@material-ui/core/Button';
 import { theme } from './theme';
 import {ThemeProvider } from '@material-ui/core/styles';
@@ -27,14 +26,19 @@ background-color: white;
 border-box: 2px solid black
 padding: 20px;
 margin: 20px;
+gap: 20px;
+background-color: #35363A;
 `
 
 const EstilizaTitulo = styled.div`
-color: #E53170
+display: flex;
+color: #E53170;
+margin-left: 30px;
 `
 const EstilizaFiltros = styled.div`
 display: flex;
 gap: 30px;
+margin-left: 30px;
 
 `
 

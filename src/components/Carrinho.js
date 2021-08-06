@@ -30,7 +30,8 @@ export class Carrinho extends Component {
       {
         this.props.products.map((product) => (
           <div>
-            <span>ID: {product.id}</span>
+            <p>{product.title}</p> 
+            <p>{product.price}</p>
           </div>
         ))
       }
