@@ -5,6 +5,14 @@ import { ContratarServico } from './components/ContratarServico';
 import { CadastroPrestador } from './components/CadastroPrestador';
 import Header from './components/Header';
 import { Carrinho } from './components/Carrinho';
+import { DetalheServico } from './components/DetalheServico';
+import {ThemeProvider } from '@material-ui/core/styles'
+import { theme } from "./components/theme"
+import styled from 'styled-components';
+
+const MainContainer = styled.div`
+background-color: rgb(53, 54, 58);
+`
 
 
 export default class App extends React.Component {
@@ -22,7 +30,7 @@ export default class App extends React.Component {
 
 	removeProducts = (product) => {
 		let newProducts = this.state.products;
-		newProducts.filter((item) => item.id != product.id)
+		newProducts.filter((item) => item.id !== product.id)
 		this.setState({products: newProducts})
 	}
 
@@ -55,9 +63,7 @@ export default class App extends React.Component {
 				return <Carrinho products={this.state.products} />;
 
 			case "detalhe":
-				return <div>
-					{this.state.selectProduct.title};
-				</div>
+				return <DetalheServico servico={this.state.selectProduct} />
 			case "lixeira":
 				return <Carrinho products={this.state.products} />;
 
@@ -83,10 +89,13 @@ export default class App extends React.Component {
 
 	render() {
 		return (
-			<div>
+			
+			<ThemeProvider theme={theme}>
+				<MainContainer>
 				<Header irParaHome={this.irParaHome} irParaCarrinho={this.irParaCarrinho}/>
 				{this.escolheTela()}
-			</div>
+				</MainContainer>
+			</ThemeProvider>
 		)
 	}
 }

@@ -1,12 +1,17 @@
 import React from 'react';
 import axios from "axios";
 import styled from 'styled-components';
+import Button from '@material-ui/core/Button';
+
 
 const MainContainer = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
 width: 100vw;
+height: 100vh;
+color: #E53170;
+padding: 10px;
 `
 
 const Inputs = styled.div`
@@ -15,6 +20,7 @@ flex-direction: column;
 width: 300px;
 // border: 2px solid black;
 gap: 15px;
+padding: 10px;
 `
 const Botao = styled.div`
 margin-top: 20px;
@@ -95,8 +101,8 @@ export class CadastroPrestador extends React.Component {
 
             })
             .catch((error) => {
-                alert(error.response.data.message);
-                console.log(error.response.data.message)
+                alert("Opa, algo deu errado!");
+                
             });
     }
 
@@ -138,7 +144,7 @@ export class CadastroPrestador extends React.Component {
 
                 </Inputs>
                 <Botao>
-                    <button onClick={this.criaServico}>Cadastrar serviço</button>
+                    <Button variant="contained" color="primary" onClick={this.criaServico}>Cadastrar serviço</Button>
                 </Botao>
 
             </MainContainer>

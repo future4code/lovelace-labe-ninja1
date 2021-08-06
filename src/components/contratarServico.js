@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
 import axios from "axios";
 import styled from 'styled-components';
+
 import { DetalheServico } from './DetalheServico';
 import CardServico from './CardServico';
 import { findByLabelText } from '@testing-library/react';
+
+import { CardServico } from './CardServico';
+import Button from '@material-ui/core/Button';
+import { theme } from './theme';
+import {ThemeProvider } from '@material-ui/core/styles';
+
 
 const url = "https://labeninjas.herokuapp.com/jobs"
 
@@ -16,8 +23,20 @@ const headers = {
 const CardsServicos = styled.div`
 display: grid;
 grid-template-columns: 1fr 1fr 1fr 1fr; 
+background-color: white;
+border-box: 2px solid black
+padding: 20px;
+margin: 20px;
 `
 
+const EstilizaTitulo = styled.div`
+color: #E53170
+`
+const EstilizaFiltros = styled.div`
+display: flex;
+gap: 30px;
+
+`
 
 
 export class ContratarServico extends Component {
@@ -112,9 +131,11 @@ export class ContratarServico extends Component {
 
     return (
       <div>
-
+        <EstilizaTitulo>
         <h1>Escolha um serviço</h1>
+        </EstilizaTitulo>
 
+        <EstilizaFiltros>
         <input
           placeholder="Valor Mínimo"
           type="number"
@@ -140,6 +161,7 @@ export class ContratarServico extends Component {
           <option value="Maior Preço"> Maior preço </option>
           <option value="Prazo"> Prazo </option>
         </select>
+        </EstilizaFiltros>
 
         <CardsServicos>
           {exibirLista}

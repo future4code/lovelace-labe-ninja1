@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 
 
 
+
 const MainContainer = styled.div`
 display: flex;
 flex-direction: column;
@@ -18,6 +19,7 @@ align-items: center;
 box-shadow: 7px 7px 15px 1px rgba(0,0,0,0.79);
 margin-top: 20px;
 `
+
 
 const useStyles = theme => ({
     root: {
@@ -37,20 +39,12 @@ const useStyles = theme => ({
       
 });
 
-const cardColor = styled.div`
-    .div{
-        background-color: #ff8906 ;
-    }
-`
-const botoesLindos = styled.button`
-    .button:hover{
-        color: #a7a9be;
-    }
-`
+
 
 
 class CardServico extends React.Component {
         
+
 
     setProductDetails = () => {
         this.props.changeScene('detalhe');
@@ -63,6 +57,7 @@ class CardServico extends React.Component {
 
         console.log(this.props)
         return (
+
 
             <Card className={classes.root} variant="outlined" color="primary" >
 
@@ -80,8 +75,6 @@ class CardServico extends React.Component {
                         <Button onClick={() => this.props.updateProducts(this.props.servico)}>Adicionar ao carrinho</Button>
                     </CardActions>
             </CardContent>
-
-
 
             </Card>
         );
