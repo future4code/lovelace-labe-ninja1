@@ -30,7 +30,7 @@ export class CardServico extends React.Component {
                 {this.props.servico.price}
                 </p>
                 <p>
-                {this.props.servico.dueDate}
+                {this.props.servico.description}
                 </p>
                
                

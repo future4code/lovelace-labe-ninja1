@@ -17,7 +17,6 @@ margin-top: 20px;
 width:400px;
 height:250px;
 margin-left: 600px;
-
 `
 
 export class DetalheServico extends React.Component {
