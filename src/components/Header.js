@@ -12,9 +12,17 @@ background-color: black;
 color: white;
 `
 
+const EstilizaTitulo = styled.div`
+display: flex;
+margin-left: 70px;
+color: #FF8906;
+`
+
 const Botao = styled.div`
 display: flex;
 justify-content: flex-end;
+align-items: center;
+margin-right: 120px;
 `
 
 class Header extends React.Component {
@@ -24,7 +32,9 @@ class Header extends React.Component {
 render() {
         return (
         <EstilizaHeader>
-                <h1>LabeNinja</h1>
+                <EstilizaTitulo>
+                <h1>LabeNinjas</h1>
+                </EstilizaTitulo>
                 <Botao>
                         <button onClick={this.props.irParaHome}>Home</button>
                         <button onClick={this.props.irParaCarrinho}>Carrinho</button>
