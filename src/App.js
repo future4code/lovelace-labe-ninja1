@@ -10,7 +10,33 @@ import { Carrinho } from './components/Carrinho';
 export default class App extends React.Component {
 	state = {
 		telaAtual: "home",
+		products: [],
+		selectProduct: undefined
 	};
+
+	updateProducts = (product) => {
+		let newProducts = this.state.products;
+		newProducts.push(product)
+		this.setState({products: newProducts})
+	}
+
+	removeProducts = (product) => {
+		let newProducts = this.state.products;
+		newProducts.filter((item) => item.id != product.id)
+		this.setState({products: newProducts})
+	}
+
+	changeScene = (scene) => {
+		this.setState({
+			telaAtual: scene
+		})
+	}
+
+	showProduct = (product) => {
+		this.setState({
+			selectProduct: product
+		})
+	}
 
 	escolheTela = () => {
 		switch (this.state.telaAtual) {
@@ -18,7 +44,7 @@ export default class App extends React.Component {
 				return <CadastroPrestador />;
 
 			case "contratar":
-				return <ContratarServico />;
+				return <ContratarServico showProduct={this.showProduct} changeScene={this.changeScene} updateProducts={this.updateProducts}/>;
 
 			case "home":
 				return <Home irParaCadastroPrestador={this.irParaCadastroPrestador}
@@ -26,7 +52,14 @@ export default class App extends React.Component {
 				/>;
 			
 			case "carrinho":
-				return <Carrinho/>;
+				return <Carrinho products={this.state.products} />;
+
+			case "detalhe":
+				return <div>
+					{this.state.selectProduct.title};
+				</div>
+			case "lixeira":
+				return <Carrinho products={this.state.products} />;
 
 			default:
 				return <div>Página não encontrada</div>;

@@ -10,16 +10,17 @@ import App from '../App';
 padding: 10px;
 margin: 10px;
 text-align: center;
+`
 
-.img{
+const HomeImg = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
-},
 
-button{
+`
+
+const HomeButton = styled.button`
   margin: 10px;
-}
 `
 export default class Home extends React.Component {
  

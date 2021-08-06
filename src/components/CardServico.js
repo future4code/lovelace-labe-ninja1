@@ -14,11 +14,9 @@ margin-top: 20px;
 
 
 export class CardServico extends React.Component {
-    state = {
-        product: {
-            id: Math.random(),
-            name: 'card 1'
-        }
+    setProductDetails = () => {
+        this.props.changeScene('detalhe');
+        this.props.showProduct(this.props.servico)
     }
     
             
@@ -27,7 +25,7 @@ export class CardServico extends React.Component {
         return (
 
             <MainContainer>
-                {/* <h3> {this.props.servico.title} </h3> */}
+                <h3> {this.props.servico.title} </h3>
                 <p>R$: 
                 {this.props.servico.price}
                 </p>
@@ -35,8 +33,9 @@ export class CardServico extends React.Component {
                 {this.props.servico.dueDate}
                 </p>
                
-                <button>Ver detalhes</button>
-                <button onClick={() => this.props.updateProducts(this.state.product)}>Adicionar ao carrinho</button>
+               
+                <button onClick={this.setProductDetails}>Ver detalhes</button>
+                <button onClick={() => this.props.updateProducts(this.props.servico)}>Adicionar ao carrinho</button>
                
             </MainContainer>
 
