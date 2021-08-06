@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from "axios";
 import styled from 'styled-components';
+import Button from '@material-ui/core/Button';
+
 
 const MainContainer = styled.div`
 display: flex;
@@ -18,6 +20,11 @@ gap: 15px;
 `
 const Botao = styled.div`
 margin-top: 20px;
+`
+
+const BotaoEstilizado = styled(Button)`
+background-color: #E53170;
+color: #E53170;
 `
 
 
@@ -138,7 +145,7 @@ export class CadastroPrestador extends React.Component {
 
                 </Inputs>
                 <Botao>
-                    <button onClick={this.criaServico}>Cadastrar serviço</button>
+                    <BotaoEstilizado variant="contained" onClick={this.criaServico}>Cadastrar serviço</BotaoEstilizado>
                 </Botao>
 
             </MainContainer>
