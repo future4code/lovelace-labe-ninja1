@@ -2,7 +2,7 @@
 
 Site responsivo com botões funcionais de adicionar serviços como prestador ou contratar serviços como consumidor final.
 
-## Link do surge para acesso ao site:
+## Link do surge para acesso ao site: http://www.labeninjas-das-meninas.surge.sh/
 
 ### Integrantes do grupo:
 * Clarice Medeiros Passos
