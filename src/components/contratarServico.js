@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 import axios from "axios";
 import styled from 'styled-components';
+
+import { DetalheServico } from './DetalheServico';
+import CardServico from './CardServico';
+import { findByLabelText } from '@testing-library/react';
+
 import { CardServico } from './CardServico';
 import Button from '@material-ui/core/Button';
 import { theme } from './theme';
 import {ThemeProvider } from '@material-ui/core/styles';
+
 
 const url = "https://labeninjas.herokuapp.com/jobs"
 
@@ -93,15 +99,16 @@ export class ContratarServico extends Component {
   }
 
   mostraServicos = () => {
+    let env = this;
     axios
       .get(url, headers)
       .then((response) => {
-        this.setState({ servicos: response.data.jobs });
-        console.log(response.data.jobs)
+        env.setState({ servicos: response.data.jobs });
+        console.log(env.state.servicos)
 
       })
       .catch((error) => {
-        console.log(error.response.data.message)
+        // console.log(error)
       });
   }
 
