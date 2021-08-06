@@ -9,6 +9,9 @@ display: flex;
 flex-direction: column;
 align-items: center;
 width: 100vw;
+height: 100vh;
+color: #E53170;
+padding: 10px;
 `
 
 const Inputs = styled.div`
@@ -17,14 +20,10 @@ flex-direction: column;
 width: 300px;
 // border: 2px solid black;
 gap: 15px;
+padding: 10px;
 `
 const Botao = styled.div`
 margin-top: 20px;
-`
-
-const BotaoEstilizado = styled(Button)`
-background-color: #E53170;
-color: #E53170;
 `
 
 
@@ -102,8 +101,8 @@ export class CadastroPrestador extends React.Component {
 
             })
             .catch((error) => {
-                alert(error.response.data.message);
-                console.log(error.response.data.message)
+                alert("Opa, algo deu errado!");
+                
             });
     }
 
@@ -145,7 +144,7 @@ export class CadastroPrestador extends React.Component {
 
                 </Inputs>
                 <Botao>
-                    <BotaoEstilizado variant="contained" onClick={this.criaServico}>Cadastrar serviço</BotaoEstilizado>
+                    <Button variant="contained" color="primary" onClick={this.criaServico}>Cadastrar serviço</Button>
                 </Botao>
 
             </MainContainer>

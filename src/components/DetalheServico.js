@@ -7,16 +7,25 @@ import Button from '@material-ui/core/Button';
 
 
 const MainContainer = styled.div`
+
+width:400px;
+height:100vh;
+margin-left: 500px;
+padding-bottom: 30px;
+
+
+`
+
+const EstilizaCard = styled.div`
+height: 300px;
+background-color: white;
+-webkit-box-shadow: 7px 7px 15px 1px rgba(0,0,0,0.79); 
+box-shadow: 1px 7px 15px 1px rgba(0,0,0,0.79);
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
--webkit-box-shadow: 7px 7px 15px 1px rgba(0,0,0,0.79); 
-box-shadow: 1px 7px 15px 1px rgba(0,0,0,0.79);
 margin-top: 20px;
-width:400px;
-height:250px;
-margin-left: 600px;
 `
 
 export class DetalheServico extends React.Component {
@@ -32,7 +41,8 @@ export class DetalheServico extends React.Component {
         return (
 
             <MainContainer>
-                <h3> {this.props.servico.title} </h3>
+                <EstilizaCard>
+                <h2> <strong> {this.props.servico.title} </strong> </h2>
                 <p> R$:
                 {this.props.servico.price}
                 </p>
@@ -46,6 +56,7 @@ export class DetalheServico extends React.Component {
                 <ThemeProvider theme={theme}>
                 <Button variant="contained" color="primary">Voltar para a lista</Button>
                 </ThemeProvider>
+                </EstilizaCard>
 
             </MainContainer>
 
