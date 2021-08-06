@@ -11,11 +11,18 @@ align-items: center;
 
 export class DetalheServico extends React.Component {
 
+    state = {
+        informacoes: {
+            id: Math.random(),
+            name: 'card x'
+        }
+    }
+
     render() {
         return (
 
             <MainContainer>
-                <h3> {this.props.servico.title} </h3>
+                {/* <h3> {this.props.servico.title} </h3> */}
                 <p>Aqui vai o preço:
                 {/* {this.props...} */}
                 </p>

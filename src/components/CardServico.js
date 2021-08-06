@@ -12,9 +12,16 @@ box-shadow: 7px 7px 15px 1px rgba(0,0,0,0.79);
 margin-top: 20px;
 `
 
-export class CardServico extends React.Component {
 
+export class CardServico extends React.Component {
+    setProductDetails = () => {
+        this.props.changeScene('detalhe');
+        this.props.showProduct(this.props.servico)
+    }
+    
+            
     render() {
+        console.log(this.props)
         return (
 
             <MainContainer>
@@ -26,8 +33,9 @@ export class CardServico extends React.Component {
                 {this.props.servico.dueDate}
                 </p>
                
-                <button>Ver detalhes</button>
-                <button>Adicionar ao carrinho</button>
+               
+                <button onClick={this.setProductDetails}>Ver detalhes</button>
+                <button onClick={() => this.props.updateProducts(this.props.servico)}>Adicionar ao carrinho</button>
                
             </MainContainer>
 
