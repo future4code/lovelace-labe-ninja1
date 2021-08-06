@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from "axios";
 import styled from 'styled-components';
+import { theme } from './theme';
+import {ThemeProvider } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button';
 
 
 const MainContainer = styled.div`
@@ -8,12 +11,12 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-width: 300px;
-border: solid 2px red;
-margin-left: 500px;
-margin-top: 100px;
-padding-bottom: 30px;
-
+-webkit-box-shadow: 7px 7px 15px 1px rgba(0,0,0,0.79); 
+box-shadow: 1px 7px 15px 1px rgba(0,0,0,0.79);
+margin-top: 20px;
+width:400px;
+height:250px;
+margin-left: 600px;
 `
 
 export class DetalheServico extends React.Component {
@@ -40,8 +43,10 @@ export class DetalheServico extends React.Component {
                 {this.props.servico.paymentMethods}
                 </p>
 
-                <button>Voltar para a lista</button>
-               
+                <ThemeProvider theme={theme}>
+                <Button variant="contained" color="primary">Voltar para a lista</Button>
+                </ThemeProvider>
+
             </MainContainer>
 
         );
