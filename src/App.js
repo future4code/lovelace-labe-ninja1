@@ -6,6 +6,13 @@ import { CadastroPrestador } from './components/CadastroPrestador';
 import Header from './components/Header';
 import { Carrinho } from './components/Carrinho';
 import { DetalheServico } from './components/DetalheServico';
+import {ThemeProvider } from '@material-ui/core/styles'
+import { theme } from "./components/theme"
+import styled from 'styled-components';
+
+const MainContainer = styled.div`
+background-color: rgb(53, 54, 58);
+`
 
 
 export default class App extends React.Component {
@@ -82,10 +89,13 @@ export default class App extends React.Component {
 
 	render() {
 		return (
-			<div>
+			
+			<ThemeProvider theme={theme}>
+				<MainContainer>
 				<Header irParaHome={this.irParaHome} irParaCarrinho={this.irParaCarrinho}/>
 				{this.escolheTela()}
-			</div>
+				</MainContainer>
+			</ThemeProvider>
 		)
 	}
 }

@@ -27,6 +27,7 @@ display: flex;
 justify-content: flex-end;
 align-items: center;
 margin-right: 120px;
+gap: 20px;
 `
 
 class Header extends React.Component {

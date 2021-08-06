@@ -16,8 +16,17 @@ const headers = {
 const CardsServicos = styled.div`
 display: grid;
 grid-template-columns: 1fr 1fr 1fr 1fr; 
+background-color: white;
 `
 
+const EstilizaTitulo = styled.div`
+color: #E53170
+`
+const EstilizaFiltros = styled.div`
+display: flex;
+gap: 30px;
+
+`
 
 
 export class ContratarServico extends Component {
@@ -111,9 +120,11 @@ export class ContratarServico extends Component {
 
     return (
       <div>
-
+        <EstilizaTitulo>
         <h1>Escolha um serviço</h1>
+        </EstilizaTitulo>
 
+        <EstilizaFiltros>
         <input
           placeholder="Valor Mínimo"
           type="number"
@@ -139,6 +150,7 @@ export class ContratarServico extends Component {
           <option value="Maior Preço"> Maior preço </option>
           <option value="Prazo"> Prazo </option>
         </select>
+        </EstilizaFiltros>
 
         <CardsServicos>
           {exibirLista}
