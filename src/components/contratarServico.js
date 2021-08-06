@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import axios from "axios";
 import styled from 'styled-components';
-import { DetalheServico } from './DetalheServico';
 import { CardServico } from './CardServico';
-import { findByLabelText } from '@testing-library/react';
+import Button from '@material-ui/core/Button';
+import { theme } from './theme';
+import {ThemeProvider } from '@material-ui/core/styles';
 
 const url = "https://labeninjas.herokuapp.com/jobs"
 
@@ -17,6 +18,9 @@ const CardsServicos = styled.div`
 display: grid;
 grid-template-columns: 1fr 1fr 1fr 1fr; 
 background-color: white;
+border-box: 2px solid black
+padding: 20px;
+margin: 20px;
 `
 
 const EstilizaTitulo = styled.div`

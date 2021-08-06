@@ -1,8 +1,5 @@
 import React from 'react';
-import axios from "axios";
 import styled from 'styled-components';
-import Home from './Home';
-import { Carrinho } from './Carrinho';
 import Button from '@material-ui/core/Button';
 import { theme } from './theme';
 import {ThemeProvider } from '@material-ui/core/styles'
@@ -42,9 +39,14 @@ render() {
                 </EstilizaTitulo>
                 <Botao>
                 <ThemeProvider theme={theme}>
-                        <Button variant="contained" color="primary" onClick={this.props.irParaHome}>Home</Button>
-                        <Button variant="contained" color="primary" onClick={this.props.irParaCarrinho}>Carrinho</Button>
-                        </ThemeProvider>
+                        
+                        <Button variant="contained" color="primary" 
+                        onClick={this.props.irParaHome}>Home</Button>
+
+                        <Button variant="contained" color="primary"
+                         onClick={this.props.irParaCarrinho}>Carrinho</Button>
+
+                </ThemeProvider>
 
                 </Botao>
         </EstilizaHeader>
