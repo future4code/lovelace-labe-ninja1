@@ -30,7 +30,7 @@ export default class App extends React.Component {
 
 	removeProducts = (product) => {
 		let newProducts = this.state.products;
-		newProducts.filter((item) => item.id != product.id)
+		newProducts.filter((item) => item.id !== product.id)
 		this.setState({products: newProducts})
 	}
 
